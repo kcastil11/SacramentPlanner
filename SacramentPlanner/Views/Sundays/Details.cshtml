@@ -1,0 +1,94 @@
+﻿@model SacramentPlanner.Models.Sunday
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<hr />
+<hr />
+<div>
+    <h2>Details</h2>
+    <h4>Sunday</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Conductor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Conductor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OpeningHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OpeningHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClosingHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClosingHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SacramentHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntermediateSong)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntermediateSong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OpeningPrayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OpeningPrayer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClosingPrayer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClosingPrayer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Speakers)
+        </dt>
+        <dd>
+            @if (Model.Speakers != null)
+            {
+<table class="table">
+    <tr>
+        <th>Order</th>
+        <th>Speaker</th>
+    </tr>
+
+    @foreach (var item in Model.Speakers)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+</tr>}
+</table> }
+            else
+            {
+<p>None</p>            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
